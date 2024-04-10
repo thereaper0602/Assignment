@@ -32,7 +32,7 @@
             this.quantiTxt = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.category = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -46,6 +46,7 @@
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.author = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Start = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
@@ -58,7 +59,7 @@
             this.panel1.Controls.Add(this.quantiTxt);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.category);
             this.panel1.Controls.Add(this.dateTimePicker1);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
@@ -105,26 +106,26 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // comboBox1
+            // category
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.category.FormattingEnabled = true;
+            this.category.Items.AddRange(new object[] {
             "Giáo trình",
             "Sách tham khảo",
             "Đồ án ngành",
             "Báo - Tạp chí",
             "Khóa luận",
             "Luận văn"});
-            this.comboBox1.Location = new System.Drawing.Point(103, 489);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(250, 24);
-            this.comboBox1.TabIndex = 9;
+            this.category.Location = new System.Drawing.Point(103, 489);
+            this.category.Name = "category";
+            this.category.Size = new System.Drawing.Size(250, 24);
+            this.category.TabIndex = 9;
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
             this.dateTimePicker1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1.Location = new System.Drawing.Point(103, 635);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(250, 26);
@@ -216,13 +217,14 @@
             this.id,
             this.Title,
             this.author,
+            this.Cate,
             this.Start,
             this.quantity});
             this.dataGridView1.Location = new System.Drawing.Point(392, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(744, 769);
+            this.dataGridView1.Size = new System.Drawing.Size(755, 769);
             this.dataGridView1.TabIndex = 1;
             // 
             // id
@@ -246,6 +248,13 @@
             this.author.Name = "author";
             this.author.Width = 130;
             // 
+            // Cate
+            // 
+            this.Cate.HeaderText = "Category";
+            this.Cate.MinimumWidth = 6;
+            this.Cate.Name = "Cate";
+            this.Cate.Width = 125;
+            // 
             // Start
             // 
             this.Start.HeaderText = "Ngày nhập";
@@ -268,6 +277,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "AddItem";
             this.Size = new System.Drawing.Size(1150, 793);
+            this.Load += new System.EventHandler(this.AddItem_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -288,7 +298,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox category;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox quantiTxt;
@@ -296,6 +306,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Title;
         private System.Windows.Forms.DataGridViewTextBoxColumn author;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Start;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
     }

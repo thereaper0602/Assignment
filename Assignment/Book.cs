@@ -23,14 +23,15 @@ namespace Assignment
         public int Quanti { get => quanti; set => quanti = value; }
         public DateTime Date { get => date; set => date = value; }
 
-        public Book(string title, string author, string category, int quanti, DateTime date)
+        public Book(string title, string author, string category, int quanti, string date)
         {
+            count++;
             this.id = "ISBN" + DateTime.Now.Year.ToString() + count.ToString("D5");
             this.Title = title;
             this.Author = author;
             this.Category = category;
             this.Quanti = quanti;
-            this.Date = date;
+            this.Date = DateTime.Parse(date); // How to make in the format dd/MM/yyyy
         }
     }
 }
