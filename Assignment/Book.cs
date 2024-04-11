@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Assignment
 {
+    [Serializable]
     internal class Book
     {
         private static int count = 0;
@@ -31,7 +32,7 @@ namespace Assignment
             this.Author = author;
             this.Category = category;
             this.Quanti = quanti;
-            this.Date = DateTime.Parse(date); // How to make in the format dd/MM/yyyy
+            this.Date = DateTime.Parse(date);
         }
     }
 }

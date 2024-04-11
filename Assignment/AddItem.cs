@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,7 @@ namespace Assignment
 {
     public partial class AddItem : UserControl
     {
-        private ManageBook manager;
+        private ManageBook manager = new ManageBook();
         public AddItem()
         {
             InitializeComponent();
@@ -22,12 +23,7 @@ namespace Assignment
         {
             int index = dataGridView1.Rows.Add();
             DataGridViewRow newRow = dataGridView1.Rows[index];
-            newRow.Cells["id"].Value = newBook.Id;
-            newRow.Cells["Title"].Value = newBook.Title;
-            newRow.Cells["author"].Value = newBook.Author;
-            newRow.Cells["Cate"].Value = newBook.Category;
-            newRow.Cells["Start"].Value = newBook.Date;
-            newRow.Cells["quantity"].Value = newBook.Quanti;
+            newRow.SetValues(newBook.Id, newBook.Title, newBook.Author, newBook.Category, newBook.Date.ToString("dd/MM/yyyy"), newBook.Quanti);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -40,6 +36,18 @@ namespace Assignment
         private void AddItem_Load(object sender, EventArgs e)
         {
             manager = new ManageBook();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dfg = new OpenFileDialog
+            {
+                Filter = "JPG file(*.jpg)|*.jpg"
+            };
+            if(dfg.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox1.Image = Image.FromFile(dfg.FileName);
+            }
         }
     }
 }
