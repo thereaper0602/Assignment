@@ -47,13 +47,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddItem.cs">
+    <Compile Include="Manage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AddItem.Designer.cs">
-      <DependentUpon>AddItem.cs</DependentUpon>
+    <Compile Include="Manage.Designer.cs">
+      <DependentUpon>Manage.cs</DependentUpon>
     </Compile>
     <Compile Include="Book.cs" />
+    <Compile Include="Find.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Find.Designer.cs">
+      <DependentUpon>Find.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,8 +75,11 @@
     <Compile Include="ManageBook.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AddItem.resx">
-      <DependentUpon>AddItem.cs</DependentUpon>
+    <EmbeddedResource Include="Manage.resx">
+      <DependentUpon>Manage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Find.resx">
+      <DependentUpon>Find.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -112,6 +121,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\Assets\monitor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Assets\search.png" />
+    <Content Include="Books.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

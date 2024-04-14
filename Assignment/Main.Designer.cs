@@ -39,7 +39,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.addItem1 = new Assignment.AddItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -97,13 +96,13 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = global::Assignment.Properties.Resources.pen;
+            this.button2.Image = global::Assignment.Properties.Resources.search;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.Location = new System.Drawing.Point(12, 413);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(259, 68);
             this.button2.TabIndex = 5;
-            this.button2.Text = "CHỈNH SỬA";
+            this.button2.Text = "TÌM KIẾM";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = false;
             // 
@@ -119,7 +118,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(259, 68);
             this.button1.TabIndex = 2;
-            this.button1.Text = "THÊM SÁCH";
+            this.button1.Text = "QUẢN LÝ";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = false;
             // 
@@ -177,19 +176,11 @@
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // addItem1
-            // 
-            this.addItem1.Location = new System.Drawing.Point(290, 42);
-            this.addItem1.Name = "addItem1";
-            this.addItem1.Size = new System.Drawing.Size(1150, 793);
-            this.addItem1.TabIndex = 2;
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1442, 840);
-            this.Controls.Add(this.addItem1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -214,6 +205,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private AddItem addItem1;
+        private Manage addItem1;
     }
 }

@@ -9,7 +9,14 @@ namespace Assignment
 {
     internal class ManageBook
     {
-        List<Book> listBook;
+        private List<Book> listBook;
+
+        public List<Book> Books
+        {
+            get { return this.listBook; }
+            set { this.listBook = value; }
+        }
+
         public ManageBook()
         {
             listBook = new List<Book>();
@@ -18,7 +25,14 @@ namespace Assignment
         public void AddBook(Book b)
         {
             listBook.Add(b);
+        }
 
+        public void UpdateBook(int index,Book updated)
+        {
+            if(index >= 0 && index < listBook.Count)
+            {
+                listBook[index] = updated;
+            }
         }
 
         public void RemoveBook(Book b)
@@ -46,5 +60,7 @@ namespace Assignment
             }
             return query.ToList();
         }
+
+
     }
 }

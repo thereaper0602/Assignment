@@ -12,11 +12,13 @@ namespace Assignment
 {
     public partial class Main : Form
     {
+        private ManageBook manager;
         public Main()
         {
             //Login log = new Login();
             //log.ShowDialog();
             InitializeComponent();
+            manager = new ManageBook();
         }
 
         private void label1_Click(object sender, EventArgs e)
