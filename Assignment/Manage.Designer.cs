@@ -51,7 +51,6 @@
             this.Cate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Start = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -61,7 +60,6 @@
             // 
             this.panel1.Controls.Add(this.quantiTxt);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.delBt);
             this.panel1.Controls.Add(this.updateBt);
             this.panel1.Controls.Add(this.addBook);
@@ -104,7 +102,7 @@
             this.delBt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.delBt.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.delBt.ForeColor = System.Drawing.Color.White;
-            this.delBt.Location = new System.Drawing.Point(703, 246);
+            this.delBt.Location = new System.Drawing.Point(703, 211);
             this.delBt.Name = "delBt";
             this.delBt.Size = new System.Drawing.Size(142, 48);
             this.delBt.TabIndex = 10;
@@ -118,7 +116,7 @@
             this.updateBt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.updateBt.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateBt.ForeColor = System.Drawing.Color.White;
-            this.updateBt.Location = new System.Drawing.Point(703, 178);
+            this.updateBt.Location = new System.Drawing.Point(542, 211);
             this.updateBt.Name = "updateBt";
             this.updateBt.Size = new System.Drawing.Size(142, 48);
             this.updateBt.TabIndex = 10;
@@ -132,7 +130,7 @@
             this.addBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addBook.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addBook.ForeColor = System.Drawing.Color.White;
-            this.addBook.Location = new System.Drawing.Point(510, 178);
+            this.addBook.Location = new System.Drawing.Point(378, 211);
             this.addBook.Name = "addBook";
             this.addBook.Size = new System.Drawing.Size(142, 48);
             this.addBook.TabIndex = 10;
@@ -306,19 +304,6 @@
             this.quantity.Name = "quantity";
             this.quantity.Width = 125;
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(37)))), ((int)(((byte)(110)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(510, 246);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(142, 48);
-            this.button2.TabIndex = 10;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.delBt_Click);
-            // 
             // Manage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -327,7 +312,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "Manage";
             this.Size = new System.Drawing.Size(1150, 793);
-            this.Load += new System.EventHandler(this.AddItem_Load);
+            this.Load += new System.EventHandler(this.Manage_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -361,6 +346,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
         private System.Windows.Forms.Button delBt;
         private System.Windows.Forms.Button updateBt;
-        private System.Windows.Forms.Button button2;
     }
 }

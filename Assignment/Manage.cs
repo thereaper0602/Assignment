@@ -28,9 +28,14 @@ namespace Assignment
             newRow.SetValues(newBook.Id, newBook.Title, newBook.Author, newBook.Category, newBook.Date.ToString("dd/MM/yyyy"), newBook.Quanti);
         }
 
-        private void AddItem_Load(object sender, EventArgs e)
+        private void addToGrid(List<Book> books)
         {
-            manager = new ManageBook();
+            foreach(Book book in books)
+            {
+                int idx = dataGridView1.Rows.Add();
+                DataGridViewRow newRow = dataGridView1.Rows[idx];
+                newRow.SetValues(book.Id, book.Title, book.Author, book.Category, book.Date.ToString("dd/MM/yyyy"), book.Quanti);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -45,28 +50,19 @@ namespace Assignment
             }
         }
 
-
-
         private void addBook_Click(object sender, EventArgs e)
         {
             Book newBook = new Book(titleTxt.Text, authorTxt.Text, category.SelectedItem.ToString(),
                                     int.Parse(quantiTxt.Text), dateTimePicker1.Value.ToString());
+            //newBook.SaveToXml("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml");
             manager.AddBook(newBook);
             this.addToGrid(newBook);
+            manager.SaveToFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml");
             titleTxt.Text = "";
             authorTxt.Text = "";
             category.Text = "";
             quantiTxt.Text = "";
         }
-
-        private void LoadDataToGrid()
-        {
-            //dataGridView1.Rows.Clear();
-            //foreach (Book book in manager.Books){
-            //    int index = dataGridView1.Rows.Add()
-            //}
-        }
-
         private void updateCell(Book book,int index)
         {
             DataGridViewRow row = dataGridView1.Rows[index];
@@ -120,6 +116,15 @@ namespace Assignment
             index = dataGridView1.CurrentCell.RowIndex;
             manager.RemoveBook(manager.Books[index]);
             dataGridView1.Rows.RemoveAt(index);
+        }
+
+        private void Manage_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                this.addToGrid(manager.ReadFromFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml"));
+            }
+            catch { }
         }
     }
 }
