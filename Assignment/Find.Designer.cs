@@ -238,6 +238,7 @@
             this.Name = "Find";
             this.Size = new System.Drawing.Size(1150, 793);
             this.Load += new System.EventHandler(this.Find_Load);
+            this.VisibleChanged += new System.EventHandler(this.Find_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

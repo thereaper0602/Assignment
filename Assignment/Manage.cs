@@ -14,14 +14,14 @@ namespace Assignment
 {
     public partial class Manage : UserControl
     {
-        private ManageBook manager = new ManageBook();
         int index;
+        private ManageBook m = new ManageBook();
         public Manage()
         {
             InitializeComponent();
         }
 
-        private void addToGrid(Book newBook)
+        public void addToGrid(Book newBook)
         {
             int index = dataGridView1.Rows.Add();
             DataGridViewRow newRow = dataGridView1.Rows[index];
@@ -54,10 +54,9 @@ namespace Assignment
         {
             Book newBook = new Book(titleTxt.Text, authorTxt.Text, category.SelectedItem.ToString(),
                                     int.Parse(quantiTxt.Text), dateTimePicker1.Value.ToString());
-            //newBook.SaveToXml("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml");
-            manager.AddBook(newBook);
+            Main.manager.AddBook(newBook);
             this.addToGrid(newBook);
-            manager.SaveToFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml");
+            Main.manager.SaveToFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml");
             titleTxt.Text = "";
             authorTxt.Text = "";
             category.Text = "";
@@ -75,12 +74,12 @@ namespace Assignment
             {
                 try
                 {
-                    manager.Books[index].Title = titleTxt.Text;
-                    manager.Books[index].Author = authorTxt.Text;
-                    manager.Books[index].Category = category.SelectedItem.ToString();
-                    manager.Books[index].Quanti = int.Parse(quantiTxt.Text);
-                    manager.Books[index].Date = dateTimePicker1.Value;
-                    updateCell(manager.Books[index], index);
+                    Main.manager.Books[index].Title = titleTxt.Text;
+                    Main.manager.Books[index].Author = authorTxt.Text;
+                    Main.manager.Books[index].Category = category.SelectedItem.ToString();
+                    Main.manager.Books[index].Quanti = int.Parse(quantiTxt.Text);
+                    Main.manager.Books[index].Date = dateTimePicker1.Value;
+                    updateCell(Main.manager.Books[index], index);
                 }
                 catch (Exception ex)
                 {
@@ -114,7 +113,7 @@ namespace Assignment
         private void delBt_Click(object sender, EventArgs e)
         {
             index = dataGridView1.CurrentCell.RowIndex;
-            manager.RemoveBook(manager.Books[index]);
+            Main.manager.RemoveBook(Main.manager.Books[index]);
             dataGridView1.Rows.RemoveAt(index);
         }
 
@@ -122,7 +121,7 @@ namespace Assignment
         {
             try
             {
-                this.addToGrid(manager.ReadFromFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml"));
+                this.addToGrid(m.ReadFromFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml"));
             }
             catch { }
         }

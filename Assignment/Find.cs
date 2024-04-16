@@ -52,5 +52,17 @@ namespace Assignment
             }
             addToGrid(find);
         }
+
+        private void Find_VisibleChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                dataGridView1.Rows.Clear();
+                List<Book> books = manager.ReadFromFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml");
+                manager.Books = books;
+                this.addToGrid(books);
+            }
+            catch { }
+        }
     }
 }
