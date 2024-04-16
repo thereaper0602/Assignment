@@ -14,7 +14,7 @@ namespace Assignment
 {
     public partial class Manage : UserControl
     {
-        int index;
+        int index,count;
         private ManageBook m = new ManageBook();
         public Manage()
         {
@@ -52,7 +52,8 @@ namespace Assignment
 
         private void addBook_Click(object sender, EventArgs e)
         {
-            Book newBook = new Book(titleTxt.Text, authorTxt.Text, category.SelectedItem.ToString(),
+            count++;
+            Book newBook = new Book(count,titleTxt.Text, authorTxt.Text, category.SelectedItem.ToString(),
                                     int.Parse(quantiTxt.Text), dateTimePicker1.Value.ToString());
             Main.manager.AddBook(newBook);
             this.addToGrid(newBook);
@@ -121,7 +122,9 @@ namespace Assignment
         {
             try
             {
-                this.addToGrid(m.ReadFromFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml"));
+                List<Book> list = m.ReadFromFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml");
+                count = list.Count;
+                this.addToGrid(list);
             }
             catch { }
         }

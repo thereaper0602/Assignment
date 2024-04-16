@@ -12,7 +12,6 @@ namespace Assignment
     [Serializable]
     public class Book
     {
-        private static int count = 0;
         private string id;
         private string title;
         private string author;
@@ -28,9 +27,8 @@ namespace Assignment
         public DateTime Date { get => date; set => date = value; }
 
 
-        public Book(string title, string author, string category, int quanti, string date)
+        public Book(int count,string title, string author, string category, int quanti, string date)
         {
-            count++;
             this.id = "ISBN" + DateTime.Now.Year.ToString() + count.ToString("D5");
             this.Title = title;
             this.Author = author;
