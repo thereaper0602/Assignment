@@ -15,8 +15,8 @@ namespace Assignment
         public static ManageBook manager;
         public Main()
         {
-            //Login log = new Login();
-            //log.ShowDialog();
+            Login log = new Login();
+            log.ShowDialog();
             InitializeComponent();
         }
 

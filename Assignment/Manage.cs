@@ -55,9 +55,9 @@ namespace Assignment
             count++;
             Book newBook = new Book(count,titleTxt.Text, authorTxt.Text, category.SelectedItem.ToString(),
                                     int.Parse(quantiTxt.Text), dateTimePicker1.Value.ToString());
-            Main.manager.AddBook(newBook);
+            m.AddBook(newBook);
             this.addToGrid(newBook);
-            Main.manager.SaveToFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml");
+            m.SaveToFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml");
             titleTxt.Text = "";
             authorTxt.Text = "";
             category.Text = "";
@@ -75,12 +75,12 @@ namespace Assignment
             {
                 try
                 {
-                    Main.manager.Books[index].Title = titleTxt.Text;
-                    Main.manager.Books[index].Author = authorTxt.Text;
-                    Main.manager.Books[index].Category = category.SelectedItem.ToString();
-                    Main.manager.Books[index].Quanti = int.Parse(quantiTxt.Text);
-                    Main.manager.Books[index].Date = dateTimePicker1.Value;
-                    updateCell(Main.manager.Books[index], index);
+                    m.Books[index].Title = titleTxt.Text;
+                    m.Books[index].Author = authorTxt.Text;
+                    m.Books[index].Category = category.SelectedItem.ToString();
+                    m.Books[index].Quanti = int.Parse(quantiTxt.Text);
+                    m.Books[index].Date = dateTimePicker1.Value;
+                    updateCell(m.Books[index], index);
                 }
                 catch (Exception ex)
                 {
@@ -114,7 +114,7 @@ namespace Assignment
         private void delBt_Click(object sender, EventArgs e)
         {
             index = dataGridView1.CurrentCell.RowIndex;
-            Main.manager.RemoveBook(Main.manager.Books[index]);
+            m.RemoveBook(m.Books[index]);
             dataGridView1.Rows.RemoveAt(index);
         }
 
