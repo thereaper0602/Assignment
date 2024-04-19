@@ -13,7 +13,6 @@ namespace Assignment
     public class ManageBook
     {
         private List<Book> listBook;
-
         public List<Book> Books
         {
             get { return this.listBook; }
@@ -84,11 +83,7 @@ namespace Assignment
             {
                 query = descending.Value ? query.OrderByDescending(b => b.Date) : query.OrderBy(b => b.Date);
             }
-
             return query.ToList();
         }
-
-
-
     }
 }

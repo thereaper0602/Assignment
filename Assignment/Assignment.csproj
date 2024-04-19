@@ -53,6 +53,13 @@
     <Compile Include="DashBoard.Designer.cs">
       <DependentUpon>DashBoard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Issued.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Issued.Designer.cs">
+      <DependentUpon>Issued.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IssuedBook.cs" />
     <Compile Include="Manage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -84,6 +91,9 @@
     <Compile Include="Student.cs" />
     <EmbeddedResource Include="DashBoard.resx">
       <DependentUpon>DashBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Issued.resx">
+      <DependentUpon>Issued.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manage.resx">
       <DependentUpon>Manage.cs</DependentUpon>
