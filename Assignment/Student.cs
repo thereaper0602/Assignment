@@ -11,23 +11,21 @@ namespace Assignment
         private string id;
         private string name;
         private string className;
-        private List<Book> books;
+        private Book book;
 
         public Student(){}
 
-        public Student(string id, string name, string className,List<Book> books)
+        public Student(string id, string name, string className, Book book)
         {
             this.id = id;
             this.name = name;
             this.className = className;
-            this.books = books;
+            this.book = book;
         }
 
         public string Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
         public string ClassName { get => className; set => className = value; }
-        public List<Book> Books { get => books; set => books = value; }
-        public void addBook(Book book) { this.books.Add(book); }
-        public void removeBook(Book book) {  books.Remove(book); }
+        public Book Books { get => book; set => book = value; }
     }
 }

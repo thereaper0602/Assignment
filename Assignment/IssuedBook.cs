@@ -14,6 +14,8 @@ namespace Assignment
             students = new List<Student>();
         }
 
+        public List<Student> Students { get => students; set => students = value; }
+
         public void addStudent(Student student)
         {
             this.students.Add(student);

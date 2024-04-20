@@ -39,9 +39,10 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.manage1 = new Assignment.Manage();
-            this.find1 = new Assignment.Find();
+            this.issued1 = new Assignment.Issued();
             this.dashBoard1 = new Assignment.DashBoard();
+            this.find1 = new Assignment.Find();
+            this.manage1 = new Assignment.Manage();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -93,6 +94,7 @@
             this.button3.Text = "MƯỢN / TRẢ";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -182,12 +184,19 @@
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // manage1
+            // issued1
             // 
-            this.manage1.Location = new System.Drawing.Point(290, 39);
-            this.manage1.Name = "manage1";
-            this.manage1.Size = new System.Drawing.Size(1150, 793);
-            this.manage1.TabIndex = 2;
+            this.issued1.Location = new System.Drawing.Point(290, 42);
+            this.issued1.Name = "issued1";
+            this.issued1.Size = new System.Drawing.Size(1150, 793);
+            this.issued1.TabIndex = 5;
+            // 
+            // dashBoard1
+            // 
+            this.dashBoard1.Location = new System.Drawing.Point(290, 39);
+            this.dashBoard1.Name = "dashBoard1";
+            this.dashBoard1.Size = new System.Drawing.Size(1150, 904);
+            this.dashBoard1.TabIndex = 4;
             // 
             // find1
             // 
@@ -196,18 +205,19 @@
             this.find1.Size = new System.Drawing.Size(1150, 793);
             this.find1.TabIndex = 3;
             // 
-            // dashBoard1
+            // manage1
             // 
-            this.dashBoard1.Location = new System.Drawing.Point(290, 39);
-            this.dashBoard1.Name = "dashBoard1";
-            this.dashBoard1.Size = new System.Drawing.Size(1150, 793);
-            this.dashBoard1.TabIndex = 4;
+            this.manage1.Location = new System.Drawing.Point(290, 39);
+            this.manage1.Name = "manage1";
+            this.manage1.Size = new System.Drawing.Size(1150, 793);
+            this.manage1.TabIndex = 2;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1442, 840);
+            this.Controls.Add(this.issued1);
             this.Controls.Add(this.dashBoard1);
             this.Controls.Add(this.find1);
             this.Controls.Add(this.manage1);
@@ -242,5 +252,6 @@
         private Manage manage1;
         private Find find1;
         private DashBoard dashBoard1;
+        private Issued issued1;
     }
 }
