@@ -30,7 +30,8 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.refreshBt = new System.Windows.Forms.Button();
+            this.extendBt = new System.Windows.Forms.Button();
             this.updateBt = new System.Windows.Forms.Button();
             this.addBt = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -87,7 +88,8 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.refreshBt);
+            this.tabPage1.Controls.Add(this.extendBt);
             this.tabPage1.Controls.Add(this.updateBt);
             this.tabPage1.Controls.Add(this.addBt);
             this.tabPage1.Controls.Add(this.groupBox2);
@@ -102,18 +104,32 @@
             this.tabPage1.Text = "Mượn sách";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // refreshBt
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(37)))), ((int)(((byte)(110)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(885, 265);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(163, 47);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Gia hạn";
-            this.button1.UseVisualStyleBackColor = false;
+            this.refreshBt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(37)))), ((int)(((byte)(110)))));
+            this.refreshBt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.refreshBt.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.refreshBt.ForeColor = System.Drawing.Color.White;
+            this.refreshBt.Location = new System.Drawing.Point(857, 358);
+            this.refreshBt.Name = "refreshBt";
+            this.refreshBt.Size = new System.Drawing.Size(162, 46);
+            this.refreshBt.TabIndex = 3;
+            this.refreshBt.Text = "Khôi phục";
+            this.refreshBt.UseVisualStyleBackColor = false;
+            // 
+            // extendBt
+            // 
+            this.extendBt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(37)))), ((int)(((byte)(110)))));
+            this.extendBt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.extendBt.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.extendBt.ForeColor = System.Drawing.Color.White;
+            this.extendBt.Location = new System.Drawing.Point(857, 265);
+            this.extendBt.Name = "extendBt";
+            this.extendBt.Size = new System.Drawing.Size(163, 47);
+            this.extendBt.TabIndex = 2;
+            this.extendBt.Text = "Gia hạn";
+            this.extendBt.UseVisualStyleBackColor = false;
+            this.extendBt.Click += new System.EventHandler(this.extendBt_Click);
             // 
             // updateBt
             // 
@@ -121,7 +137,7 @@
             this.updateBt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.updateBt.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateBt.ForeColor = System.Drawing.Color.White;
-            this.updateBt.Location = new System.Drawing.Point(684, 265);
+            this.updateBt.Location = new System.Drawing.Point(558, 358);
             this.updateBt.Name = "updateBt";
             this.updateBt.Size = new System.Drawing.Size(163, 47);
             this.updateBt.TabIndex = 2;
@@ -135,7 +151,7 @@
             this.addBt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addBt.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addBt.ForeColor = System.Drawing.Color.White;
-            this.addBt.Location = new System.Drawing.Point(484, 265);
+            this.addBt.Location = new System.Drawing.Point(558, 265);
             this.addBt.Name = "addBt";
             this.addBt.Size = new System.Drawing.Size(163, 47);
             this.addBt.TabIndex = 2;
@@ -272,6 +288,7 @@
             this.findBt.TabIndex = 2;
             this.findBt.Text = "Tìm";
             this.findBt.UseVisualStyleBackColor = false;
+            this.findBt.Click += new System.EventHandler(this.findBt_Click);
             // 
             // extendMStxt
             // 
@@ -449,7 +466,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1136, 761);
+            this.tabPage2.Size = new System.Drawing.Size(1136, 758);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Trả sách";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -462,6 +479,7 @@
             this.Name = "Issued";
             this.Size = new System.Drawing.Size(1150, 793);
             this.Load += new System.EventHandler(this.Issued_Load);
+            this.VisibleChanged += new System.EventHandler(this.Issued_VisibleChanged);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -505,7 +523,7 @@
         private System.Windows.Forms.TextBox quantiTxt;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button updateBt;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button extendBt;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button findBt;
         private System.Windows.Forms.TextBox extendMStxt;
@@ -516,5 +534,6 @@
         private System.Windows.Forms.TextBox mssvTxt;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button refreshBt;
     }
 }

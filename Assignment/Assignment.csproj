@@ -143,6 +143,7 @@
     <None Include="bin\Debug\Assets\monitor.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BorrowBook.xml" />
     <None Include="bin\Debug\Assets\search.png" />
     <None Include="bin\Debug\Assets\resume-and-cv.png" />
     <None Include="bin\Debug\Assets\book %281%29.png" />

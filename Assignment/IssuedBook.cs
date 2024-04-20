@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace Assignment
 {
@@ -24,6 +27,38 @@ namespace Assignment
         public void removeStudent(Student student) 
         {
             this.students.Remove(student);
+        }
+
+        public void SaveToFile(string fileName)
+        {
+            XmlSerializer obj = new XmlSerializer(typeof(List<Student>));
+            using(StreamWriter sw = new StreamWriter(fileName)) 
+            {
+                obj.Serialize(sw, this.students);
+            }
+        }
+
+        public List<Student> ReadFromFile(string fileName)
+        {
+            XmlSerializer obj = new XmlSerializer(typeof(List<Student>));
+            using (StreamReader sw = new StreamReader(fileName))
+            {
+                return (List<Student>)obj.Deserialize(sw);
+            }
+        }
+
+        public List<Student> FindStudent(string id = null,string bookId = null)
+        {
+            var query = students.AsQueryable();
+            if (!string.IsNullOrEmpty(id))
+            {
+                query = query.Where(b => b.Id.Equals(id,StringComparison.OrdinalIgnoreCase));
+            }
+            if (!string.IsNullOrEmpty(bookId))
+            {
+                query = query.Where(b => b.Books.Id.Equals(bookId,StringComparison.OrdinalIgnoreCase));
+            }
+            return query.ToList();
         }
     }
 }

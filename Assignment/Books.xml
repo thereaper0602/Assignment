@@ -1,11 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfBook xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Book>
-    <Id>ISBN202400001</Id>
-    <Title>xcvsdf</Title>
-    <Author>sdf</Author>
-    <Category>Báo - Tạp chí</Category>
-    <Quanti>12</Quanti>
-    <Date>2024-04-16T13:34:06</Date>
-  </Book>
-</ArrayOfBook>
+<ArrayOfBook xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />

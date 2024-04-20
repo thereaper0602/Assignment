@@ -118,6 +118,14 @@ namespace Assignment
             dataGridView1.Rows.RemoveAt(index);
         }
 
+        private void Manage_VisibleChanged(object sender, EventArgs e)
+        {
+            List<Book> list = m.ReadFromFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml");
+            count = list.Count;
+            this.addToGrid(list);
+            m.SaveToFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml");
+        }
+
         private void Manage_Load(object sender, EventArgs e)
         {
             try

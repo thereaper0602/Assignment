@@ -60,6 +60,7 @@ namespace Assignment
                 dataGridView1.Rows.Clear();
                 List<Book> books = manager.ReadFromFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml");
                 manager.Books = books;
+                manager.SaveToFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml");
                 this.addToGrid(books);
             }
             catch { }

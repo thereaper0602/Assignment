@@ -23,25 +23,22 @@ namespace Assignment
 
         private void addToGrid(Student student)
         {
-            try
+            int idx = dataGridView1.Rows.Add();
+            DataGridViewRow newRow = dataGridView1.Rows[idx];
+            newRow.SetValues(student.Id, student.Name, student.ClassName, student.Books.Id, student.Books.Title, dateTimePicker1.Value.ToString("dd/MM/yyyy"), dateTimePicker1.Value.AddDays(20).ToString("dd/MM/yyyy"), quantiTxt.Text);
+        }
+
+
+        private void addToGrid(List<Student> student)
+        {
+            foreach(Student s in student)
             {
-                if (student != null)
-                {
-                    int idx = dataGridView1.Rows.Add();
-                    DataGridViewRow newRow = dataGridView1.Rows[idx];
-                    newRow.SetValues(student.Id, student.Name, student.ClassName, student.Books.Id, student.Books.Title, dateTimePicker1.Value.ToString("dd/MM/yyyy"), dateTimePicker1.Value.AddDays(20).ToString("dd/MM/yyyy"), int.Parse(quantiTxt.Text));
-                }
-                else return;
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Vui lòng nhập đúng định dạng");
-            }
-            catch(Exception) 
-            {
-                MessageBox.Show("Lỗi");
+               int idx = dataGridView1.Rows.Add();
+               DataGridViewRow newRow = dataGridView1.Rows[idx];
+               newRow.SetValues(s.Id, s.Name, s.ClassName, s.Books.Id, s.Books.Title, dateTimePicker1.Value.ToString("dd/MM/yyyy"), dateTimePicker1.Value.AddDays(20).ToString("dd/MM/yyyy"), quantiTxt.Text);
             }
         }
+
 
         private void addBt_Click(object sender, EventArgs e)
         {
@@ -109,6 +106,27 @@ namespace Assignment
                 MessageBox.Show("The date format is not valid.");
                 dateTimePicker1.Value = dateTimePicker1.Value = DateTime.Now; // Đặt giá trị mặc định
             }
+        }
+
+        private void extendBt_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = dataGridView1.Rows[index];
+            row.Cells["ReturnDate"].Value = dateTimePicker2.Value.AddDays(20).ToString("dd/MM/yyyy");
+        }
+
+        private void findBt_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+            List<Student> students = new List<Student>();
+            students = issued.FindStudent(id : extendMStxt.Text,bookId : ExtendBookTxt.Text);
+            this.addToGrid(students);
+        }
+
+        private void Issued_VisibleChanged(object sender, EventArgs e)
+        {
+            List<Student> students = new List<Student>();
+            students = issued.FindStudent(id: extendMStxt.Text, bookId: ExtendBookTxt.Text);
+            issued.SaveToFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\BorrowBook.xml");
         }
     }
 }
