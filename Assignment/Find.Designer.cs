@@ -209,24 +209,24 @@
             // refreshBt
             // 
             this.refreshBt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(37)))), ((int)(((byte)(110)))));
-            this.refreshBt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.refreshBt.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshBt.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.refreshBt.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F);
             this.refreshBt.ForeColor = System.Drawing.Color.White;
-            this.refreshBt.Location = new System.Drawing.Point(686, 238);
+            this.refreshBt.Location = new System.Drawing.Point(688, 238);
             this.refreshBt.Name = "refreshBt";
-            this.refreshBt.Size = new System.Drawing.Size(250, 48);
-            this.refreshBt.TabIndex = 24;
+            this.refreshBt.Size = new System.Drawing.Size(247, 47);
+            this.refreshBt.TabIndex = 27;
             this.refreshBt.Text = "Khôi phục";
             this.refreshBt.UseVisualStyleBackColor = false;
-            this.refreshBt.Click += new System.EventHandler(this.findBt_Click);
+            this.refreshBt.Click += new System.EventHandler(this.refreshBt_Click);
             // 
             // Find
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.refreshBt);
             this.Controls.Add(this.idTxt);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.refreshBt);
             this.Controls.Add(this.findBt);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.sortDate);

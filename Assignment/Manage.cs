@@ -15,7 +15,7 @@ namespace Assignment
     public partial class Manage : UserControl
     {
         int index,count;
-        private ManageBook m = new ManageBook();
+        private ManageBook m;
         public Manage()
         {
             InitializeComponent();
@@ -55,18 +55,16 @@ namespace Assignment
             count++;
             Book newBook = new Book(count,titleTxt.Text, authorTxt.Text, category.SelectedItem.ToString(),
                                     int.Parse(quantiTxt.Text), dateTimePicker1.Value.ToString());
-            m.AddBook(newBook);
             this.addToGrid(newBook);
+            m.AddBook(newBook);
             m.SaveToFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml");
-            titleTxt.Text = "";
-            authorTxt.Text = "";
-            category.Text = "";
-            quantiTxt.Text = "";
+            titleTxt.Text = authorTxt.Text = category.Text = quantiTxt.Text = "";
         }
         private void updateCell(Book book,int index)
         {
             DataGridViewRow row = dataGridView1.Rows[index];
             row.SetValues(book.Id, book.Title, book.Author, book.Category,book.Date.ToString("dd/MM/yyyy"), book.Quanti);
+            m.SaveToFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml");
         }
 
         private void updateBt_Click(object sender, EventArgs e)
@@ -115,22 +113,17 @@ namespace Assignment
         {
             index = dataGridView1.CurrentCell.RowIndex;
             m.RemoveBook(m.Books[index]);
-            dataGridView1.Rows.RemoveAt(index);
-        }
-
-        private void Manage_VisibleChanged(object sender, EventArgs e)
-        {
-            List<Book> list = m.ReadFromFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml");
-            count = list.Count;
-            this.addToGrid(list);
             m.SaveToFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml");
+            dataGridView1.Rows.RemoveAt(index);
         }
 
         private void Manage_Load(object sender, EventArgs e)
         {
+            m = new ManageBook();
             try
             {
                 List<Book> list = m.ReadFromFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml");
+                m.Books = list;
                 count = list.Count;
                 this.addToGrid(list);
             }

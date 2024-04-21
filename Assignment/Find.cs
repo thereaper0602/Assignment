@@ -12,7 +12,7 @@ namespace Assignment
 {
     public partial class Find : UserControl
     {
-        ManageBook manager = new ManageBook();
+        ManageBook manager;
         public Find()
         {
             InitializeComponent();
@@ -31,6 +31,7 @@ namespace Assignment
         {
             try
             {
+                manager = new ManageBook();
                 List<Book> books = manager.ReadFromFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml");
                 manager.Books = books;
                 this.addToGrid(books);
@@ -57,13 +58,23 @@ namespace Assignment
         {
             try
             {
-                dataGridView1.Rows.Clear();
-                List<Book> books = manager.ReadFromFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml");
-                manager.Books = books;
-                manager.SaveToFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml");
-                this.addToGrid(books);
+                if(Visible == true)
+                {
+                    dataGridView1.Rows.Clear();
+                    List<Book> books = manager.ReadFromFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml");
+                    manager.Books = books;
+                    this.addToGrid(books);
+                }
+                //manager.SaveToFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml");
             }
             catch { }
+        }
+
+        private void refreshBt_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+            List<Book> books = manager.ReadFromFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml");
+            this.addToGrid(books);
         }
     }
 }

@@ -13,15 +13,15 @@ namespace Assignment
 {
     public partial class Issued : UserControl
     {
-        ManageBook manager = new ManageBook();
-        IssuedBook issued = new IssuedBook();
+        ManageBook manager;
+        IssuedBook issued;
         int index;
         public Issued()
         {
             InitializeComponent();
         }
 
-        private void addToGrid(Student student)
+        private void addToGrid1(Student student)
         {
             int idx = dataGridView1.Rows.Add();
             DataGridViewRow newRow = dataGridView1.Rows[idx];
@@ -29,13 +29,30 @@ namespace Assignment
         }
 
 
-        private void addToGrid(List<Student> student)
+        private void addToGrid1(List<Student> student)
         {
             foreach(Student s in student)
             {
                int idx = dataGridView1.Rows.Add();
                DataGridViewRow newRow = dataGridView1.Rows[idx];
-               newRow.SetValues(s.Id, s.Name, s.ClassName, s.Books.Id, s.Books.Title, dateTimePicker1.Value.ToString("dd/MM/yyyy"), dateTimePicker1.Value.AddDays(20).ToString("dd/MM/yyyy"), quantiTxt.Text);
+               newRow.SetValues(s.Id, s.Name, s.ClassName, s.Books.Id, s.Books.Title, dateTimePicker1.Value.ToString("dd/MM/yyyy"), dateTimePicker1.Value.AddDays(20).ToString("dd/MM/yyyy"),s.Quanti.ToString());
+            }
+        }
+
+        private void addToGrid2(Student s)
+        {
+             int idx = dataGridView2.Rows.Add();
+             DataGridViewRow newRow = dataGridView2.Rows[idx];
+             newRow.SetValues(s.Id, s.Name, s.ClassName, s.Books.Id, s.Books.Title, dateTimePicker1.Value.ToString("dd/MM/yyyy"), dateTimePicker1.Value.AddDays(20).ToString("dd/MM/yyyy"), s.Quanti.ToString());
+        }
+
+        private void addToGrid2(List<Student> student)
+        {
+            foreach (Student s in student)
+            {
+                int idx = dataGridView2.Rows.Add();
+                DataGridViewRow newRow = dataGridView2.Rows[idx];
+                newRow.SetValues(s.Id, s.Name, s.ClassName, s.Books.Id, s.Books.Title, dateTimePicker1.Value.ToString("dd/MM/yyyy"), dateTimePicker1.Value.AddDays(20).ToString("dd/MM/yyyy"), s.Quanti.ToString());
             }
         }
 
@@ -44,11 +61,29 @@ namespace Assignment
         {
             try
             {
-                List<Book> book = manager.FindBook(idBook.SelectedText);
-                Student student = new Student(mssvTxt.Text, studentNameTxt.Text, classNameTxt.Text, book[0]);
-                issued.addStudent(student);
-                this.addToGrid(student);
-                mssvTxt.Text = studentNameTxt.Text = classNameTxt.Text = bookNameTxt.Text = quantiTxt.Text = idBook.Text = "";
+                List<Book> book = manager.FindBook(idBook.SelectedItem.ToString());
+                List<Student> s = issued.FindStudent(id : mssvTxt.Text);
+                if(issued.countBook(s) > 3)
+                {
+                    MessageBox.Show("Sinh viên không được mượn quá 3 cuốn sách");
+                }
+                if (int.Parse(quantiTxt.Text) > 3)
+                {
+                    MessageBox.Show("Mỗi sinh viên chỉ được mượn tối đa 3 cuốn");
+                }
+                if(int.Parse(quantiTxt.Text) >= book[0].Quanti)
+                {
+                    MessageBox.Show("Số lượng sách không đủ");
+                }
+                else
+                {
+                    Student student = new Student(mssvTxt.Text, studentNameTxt.Text, classNameTxt.Text, book[0], int.Parse(quantiTxt.Text));
+                    issued.addStudent(student);
+                    this.addToGrid2(student);
+                    this.addToGrid1(student);
+                    issued.SaveToFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\BorrowBook.xml");
+                    mssvTxt.Text = studentNameTxt.Text = classNameTxt.Text = bookNameTxt.Text = quantiTxt.Text = idBook.Text = "";
+                }
             }
             catch (Exception)
             {
@@ -58,17 +93,23 @@ namespace Assignment
 
         private void Issued_Load(object sender, EventArgs e)
         {
+            manager = new ManageBook();
+            issued = new IssuedBook();
             manager.Books = manager.ReadFromFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml");
-            foreach(var item in manager.Books)
+            issued.Students = issued.ReadFromFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\BorrowBook.xml");
+            foreach (var item in manager.Books)
             {
                 idBook.Items.Add(item.Id);
             }
+            this.addToGrid1(issued.Students);
+            this.addToGrid2(issued.Students);
         }
 
         private void updateCell(Student student,int index)
         {
             DataGridViewRow row = dataGridView1.Rows[index];
             row.SetValues(student.Id, student.Name, student.ClassName, student.Books.Id, student.Books.Title, dateTimePicker1.Value.ToString("dd/MM/yyyy"), dateTimePicker1.Value.AddDays(20).ToString("dd/MM/yyyy"), int.Parse(quantiTxt.Text));
+            issued.SaveToFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\BorrowBook.xml");
         }
 
         private void updateBt_Click(object sender, EventArgs e)
@@ -77,6 +118,7 @@ namespace Assignment
             {
                 issued.Students[index].Name = studentNameTxt.Text;
                 issued.Students[index].ClassName = classNameTxt.Text;
+                issued.Students[index].Id = mssvTxt.Text;
                 List<Book> book = manager.FindBook(idBook.SelectedText);
                 issued.Students[index].Books = book[0];
                 updateCell(issued.Students[index], index);
@@ -119,13 +161,55 @@ namespace Assignment
             dataGridView1.Rows.Clear();
             List<Student> students = new List<Student>();
             students = issued.FindStudent(id : extendMStxt.Text,bookId : ExtendBookTxt.Text);
-            this.addToGrid(students);
+            this.addToGrid1(students);
         }
 
         private void Issued_VisibleChanged(object sender, EventArgs e)
         {
-            List<Student> students = new List<Student>();
-            students = issued.FindStudent(id: extendMStxt.Text, bookId: ExtendBookTxt.Text);
+            if(this.Visible == true)
+            {
+                dataGridView1.Rows.Clear();
+                manager.Books = manager.ReadFromFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml");
+                issued.Students = issued.ReadFromFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\BorrowBook.xml");
+                this.addToGrid1(issued.Students);
+            }
+        }
+
+        private void refreshBt_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+            this.addToGrid1(issued.Students);
+        }
+
+        private void returnOneBt_Click(object sender, EventArgs e)
+        {
+            if (dataGridView2.SelectedRows.Count > 0)
+            {
+                dataGridView2.Rows.Clear();
+                dataGridView1.Rows.Clear();
+                Student s = issued.FindStudent(id : returnIDtxt.Text,bookId : returnBookTxt.Text)[0];
+                issued.removeStudent(s);
+                this.addToGrid2(issued.Students);
+                this.addToGrid1(issued.Students);
+                issued.SaveToFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\BorrowBook.xml");
+            }
+        }
+
+        private void findInfoBt_Click(object sender, EventArgs e)
+        {
+            dataGridView2.Rows.Clear();
+            List<Student> students = issued.FindStudent(id : returnIDtxt.Text, bookId: returnBookTxt.Text);
+            this.addToGrid2(students);
+        }
+
+        private void returnAllBt_Click(object sender, EventArgs e)
+        {
+            dataGridView2.Rows.Clear();
+            dataGridView1.Rows.Clear();
+            List<Student> s = issued.FindStudent(id: returnIDtxt.Text, bookId: returnBookTxt.Text);
+            issued.removeStudent(s);
+            this.addToGrid2(issued.Students);
+            this.addToGrid1(issued.Students);
             issued.SaveToFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\BorrowBook.xml");
         }
     }

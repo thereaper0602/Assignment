@@ -1,2 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfBook xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+<ArrayOfBook xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Book>
+    <Id>ISBN202400001</Id>
+    <Title>sdf</Title>
+    <Author>sdf</Author>
+    <Category>Sách tham khảo</Category>
+    <Quanti>34</Quanti>
+    <Date>2024-04-15T23:15:24</Date>
+  </Book>
+  <Book>
+    <Id>ISBN202400002</Id>
+    <Title>sd</Title>
+    <Author>xcv</Author>
+    <Category>Luận văn</Category>
+    <Quanti>34</Quanti>
+    <Date>2024-04-13T23:15:24</Date>
+  </Book>
+  <Book>
+    <Id>ISBN202400003</Id>
+    <Title>sd</Title>
+    <Author>xcv</Author>
+    <Category>Khóa luận</Category>
+    <Quanti>34</Quanti>
+    <Date>2024-04-13T23:15:24</Date>
+  </Book>
+  <Book>
+    <Id>ISBN202400006</Id>
+    <Title>dxcvcxv</Title>
+    <Author>34</Author>
+    <Category>Khóa luận</Category>
+    <Quanti>3</Quanti>
+    <Date>2024-04-21T11:10:34</Date>
+  </Book>
+  <Book>
+    <Id>ISBN202400007</Id>
+    <Title>wef</Title>
+    <Author>xxcxca</Author>
+    <Category>Sách tham khảo</Category>
+    <Quanti>12</Quanti>
+    <Date>2024-04-21T00:00:00</Date>
+  </Book>
+  <Book>
+    <Id>ISBN202400008</Id>
+    <Title>sdfzvc</Title>
+    <Author>dfqewq</Author>
+    <Category>Giáo trình</Category>
+    <Quanti>12</Quanti>
+    <Date>2024-04-21T00:00:00</Date>
+  </Book>
+</ArrayOfBook>

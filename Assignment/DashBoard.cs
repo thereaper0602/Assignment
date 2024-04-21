@@ -12,19 +12,16 @@ namespace Assignment
 {
     public partial class DashBoard : UserControl
     {
-        private ManageBook manager = new ManageBook();
+        private ManageBook manager;
         public DashBoard()
         {
             InitializeComponent();
         }
 
-        private void makeCount()
+        private void makeCount(ManageBook manager)
         {
             try
             {
-                List<Book> books = manager.ReadFromFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml");
-                manager.Books = books;
-
                 GiaoTrinhlb.Text = (manager.FindBook(category: "Giáo trình").Count()).ToString();
                 thamKhaolb.Text = (manager.FindBook(category: "Sách tham khảo").Count()).ToString();
                 doAnlb.Text = manager.FindBook(category: "Đồ án ngành").Count().ToString();
@@ -37,12 +34,15 @@ namespace Assignment
 
         private void DashBoard_Load(object sender, EventArgs e)
         {
-            makeCount();
+            manager = new ManageBook();
+            List<Book> books = manager.ReadFromFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml");
+            manager.Books = books;
+            makeCount(manager);
         }
 
         private void DashBoard_VisibleChanged(object sender, EventArgs e)
         {
-            makeCount();
+            makeCount(manager);
         }
     }
 }

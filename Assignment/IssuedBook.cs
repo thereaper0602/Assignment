@@ -29,6 +29,14 @@ namespace Assignment
             this.students.Remove(student);
         }
 
+        public void removeStudent(List<Student> students)
+        {
+            foreach(Student s in students)
+            {
+                this.students.Remove(s);
+            }
+        }
+
         public void SaveToFile(string fileName)
         {
             XmlSerializer obj = new XmlSerializer(typeof(List<Student>));
@@ -60,5 +68,16 @@ namespace Assignment
             }
             return query.ToList();
         }
+
+        public int countBook(List<Student> s)
+        {
+            int count = 0;
+            foreach(Student student in s)
+            {
+                count += (student.Quanti);
+            }
+            return count;
+        }
+
     }
 }

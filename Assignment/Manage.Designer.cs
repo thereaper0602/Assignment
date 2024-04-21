@@ -313,7 +313,6 @@
             this.Name = "Manage";
             this.Size = new System.Drawing.Size(1150, 793);
             this.Load += new System.EventHandler(this.Manage_Load);
-            this.VisibleChanged += new System.EventHandler(this.Manage_VisibleChanged);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
