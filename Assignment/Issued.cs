@@ -170,6 +170,10 @@ namespace Assignment
                 dataGridView1.Rows.Clear();
                 manager.Books = manager.ReadFromFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml");
                 issued.Students = issued.ReadFromFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\BorrowBook.xml");
+                foreach (var item in manager.Books)
+                {
+                    idBook.Items.Add(item.Id);
+                }
                 this.addToGrid1(issued.Students);
             }
         }
