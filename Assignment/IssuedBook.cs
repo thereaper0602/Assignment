@@ -40,7 +40,7 @@ namespace Assignment
         public void SaveToFile(string fileName)
         {
             XmlSerializer obj = new XmlSerializer(typeof(List<Student>));
-            using(StreamWriter sw = new StreamWriter(fileName)) 
+            using(StreamWriter sw = new StreamWriter(fileName))
             {
                 obj.Serialize(sw, this.students);
             }

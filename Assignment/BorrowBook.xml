@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfStudent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Student>
-    <Id>123</Id>
-    <Name>quang</Name>
-    <ClassName>dsa</ClassName>
+    <Id>789</Id>
+    <Name>duy</Name>
+    <ClassName>asd</ClassName>
     <Books>
       <Id>ISBN202400003</Id>
       <Title>sd</Title>
@@ -15,16 +15,30 @@
     <Quanti>1</Quanti>
   </Student>
   <Student>
-    <Id>789</Id>
-    <Name>duy</Name>
-    <ClassName>asd</ClassName>
+    <Id>2254052047</Id>
+    <Name>Manh</Name>
+    <ClassName>IM02</ClassName>
     <Books>
-      <Id>ISBN202400006</Id>
-      <Title>dxcvcxv</Title>
-      <Author>34</Author>
-      <Category>Khóa luận</Category>
-      <Quanti>3</Quanti>
-      <Date>2024-04-21T11:10:34</Date>
+      <Id>ISBN202400002</Id>
+      <Title>sd</Title>
+      <Author>xcv</Author>
+      <Category>Luận văn</Category>
+      <Quanti>34</Quanti>
+      <Date>2024-04-13T23:15:24</Date>
+    </Books>
+    <Quanti>2</Quanti>
+  </Student>
+  <Student>
+    <Id>2343</Id>
+    <Name>gfhfg</Name>
+    <ClassName>sdxgsdfg</ClassName>
+    <Books>
+      <Id>ISBN202400002</Id>
+      <Title>sd</Title>
+      <Author>xcv</Author>
+      <Category>Luận văn</Category>
+      <Quanti>34</Quanti>
+      <Date>2024-04-13T23:15:24</Date>
     </Books>
     <Quanti>1</Quanti>
   </Student>

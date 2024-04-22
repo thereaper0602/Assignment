@@ -28,7 +28,6 @@ namespace Assignment
             newRow.SetValues(student.Id, student.Name, student.ClassName, student.Books.Id, student.Books.Title, dateTimePicker1.Value.ToString("dd/MM/yyyy"), dateTimePicker1.Value.AddDays(20).ToString("dd/MM/yyyy"), quantiTxt.Text);
         }
 
-
         private void addToGrid1(List<Student> student)
         {
             foreach(Student s in student)
@@ -119,7 +118,7 @@ namespace Assignment
                 issued.Students[index].Name = studentNameTxt.Text;
                 issued.Students[index].ClassName = classNameTxt.Text;
                 issued.Students[index].Id = mssvTxt.Text;
-                List<Book> book = manager.FindBook(idBook.SelectedText);
+                List<Book> book = manager.FindBook(idBook.SelectedItem.ToString());
                 issued.Students[index].Books = book[0];
                 updateCell(issued.Students[index], index);
             }

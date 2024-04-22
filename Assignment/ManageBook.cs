@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Xml.Serialization;
 using System.Runtime.Serialization;
+using System.Collections.Specialized;
 
 namespace Assignment
 {
@@ -85,6 +86,15 @@ namespace Assignment
                 query = descending.Value ? query.OrderByDescending(b => b.Date) : query.OrderBy(b => b.Date);
             }
             return query.ToList();
+        }
+
+        public void updateID()
+        {
+            int count = 1;
+            foreach(Book b in this.Books)
+            {
+                b.Id = "ISBN" + DateTime.Now.Year.ToString() + (count++).ToString("D5");
+            }
         }
     }
 }

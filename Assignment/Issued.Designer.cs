@@ -148,7 +148,7 @@
             this.refreshBt.ForeColor = System.Drawing.Color.White;
             this.refreshBt.Location = new System.Drawing.Point(857, 358);
             this.refreshBt.Name = "refreshBt";
-            this.refreshBt.Size = new System.Drawing.Size(162, 46);
+            this.refreshBt.Size = new System.Drawing.Size(177, 46);
             this.refreshBt.TabIndex = 3;
             this.refreshBt.Text = "Khôi phục";
             this.refreshBt.UseVisualStyleBackColor = false;
@@ -162,7 +162,7 @@
             this.extendBt.ForeColor = System.Drawing.Color.White;
             this.extendBt.Location = new System.Drawing.Point(857, 265);
             this.extendBt.Name = "extendBt";
-            this.extendBt.Size = new System.Drawing.Size(163, 47);
+            this.extendBt.Size = new System.Drawing.Size(177, 47);
             this.extendBt.TabIndex = 2;
             this.extendBt.Text = "Gia hạn";
             this.extendBt.UseVisualStyleBackColor = false;
@@ -176,7 +176,7 @@
             this.updateBt.ForeColor = System.Drawing.Color.White;
             this.updateBt.Location = new System.Drawing.Point(558, 358);
             this.updateBt.Name = "updateBt";
-            this.updateBt.Size = new System.Drawing.Size(163, 47);
+            this.updateBt.Size = new System.Drawing.Size(182, 47);
             this.updateBt.TabIndex = 2;
             this.updateBt.Text = "Cập nhật";
             this.updateBt.UseVisualStyleBackColor = false;
@@ -190,7 +190,7 @@
             this.addBt.ForeColor = System.Drawing.Color.White;
             this.addBt.Location = new System.Drawing.Point(558, 265);
             this.addBt.Name = "addBt";
-            this.addBt.Size = new System.Drawing.Size(163, 47);
+            this.addBt.Size = new System.Drawing.Size(182, 47);
             this.addBt.TabIndex = 2;
             this.addBt.Text = "Thêm";
             this.addBt.UseVisualStyleBackColor = false;

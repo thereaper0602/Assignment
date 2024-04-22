@@ -113,8 +113,11 @@ namespace Assignment
         {
             index = dataGridView1.CurrentCell.RowIndex;
             m.RemoveBook(m.Books[index]);
+            m.updateID();
             m.SaveToFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml");
             dataGridView1.Rows.RemoveAt(index);
+            dataGridView1.Rows.Clear();
+            this.addToGrid(m.Books);
         }
 
         private void Manage_Load(object sender, EventArgs e)

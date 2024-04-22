@@ -25,27 +25,27 @@
     <Date>2024-04-13T23:15:24</Date>
   </Book>
   <Book>
-    <Id>ISBN202400006</Id>
-    <Title>dxcvcxv</Title>
-    <Author>34</Author>
-    <Category>Khóa luận</Category>
-    <Quanti>3</Quanti>
-    <Date>2024-04-21T11:10:34</Date>
-  </Book>
-  <Book>
-    <Id>ISBN202400007</Id>
-    <Title>wef</Title>
-    <Author>xxcxca</Author>
-    <Category>Sách tham khảo</Category>
-    <Quanti>12</Quanti>
-    <Date>2024-04-21T00:00:00</Date>
-  </Book>
-  <Book>
-    <Id>ISBN202400008</Id>
+    <Id>ISBN202400004</Id>
     <Title>sdfzvc</Title>
     <Author>dfqewq</Author>
     <Category>Giáo trình</Category>
     <Quanti>12</Quanti>
     <Date>2024-04-21T00:00:00</Date>
+  </Book>
+  <Book>
+    <Id>ISBN202400005</Id>
+    <Title>OU</Title>
+    <Author>WEER</Author>
+    <Category>Đồ án ngành</Category>
+    <Quanti>3</Quanti>
+    <Date>2024-04-22T21:30:37</Date>
+  </Book>
+  <Book>
+    <Id>ISBN202400006</Id>
+    <Title>kjjkshdf</Title>
+    <Author>fds</Author>
+    <Category>Sách tham khảo</Category>
+    <Quanti>2</Quanti>
+    <Date>2024-04-22T21:40:37</Date>
   </Book>
 </ArrayOfBook>
