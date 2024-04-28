@@ -167,7 +167,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 211);
+            this.label4.Location = new System.Drawing.Point(3, 211);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(88, 21);
             this.label4.TabIndex = 6;

@@ -41,17 +41,21 @@ namespace Assignment
 
         private void findBt_Click(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Clear();
-            List<Book> find = new List<Book>();
-            if (sortDate.Text.Equals("Mới nhất"))
+            try
             {
-                find = manager.FindBook(idTxt.Text, titleTxt.Text, category.Text,true);
+                dataGridView1.Rows.Clear();
+                List<Book> find = new List<Book>();
+                if (sortDate.Text.Equals("Mới nhất"))
+                {
+                    find = manager.FindBook(idTxt.Text, titleTxt.Text, category.Text, true);
+                }
+                else
+                {
+                    find = manager.FindBook(idTxt.Text, titleTxt.Text, category.Text, false);
+                }
+                addToGrid(find);
             }
-            else
-            {
-                find = manager.FindBook(idTxt.Text, titleTxt.Text, category.Text, false);
-            }
-            addToGrid(find);
+            catch { }
         }
 
         private void Find_VisibleChanged(object sender, EventArgs e)
@@ -65,7 +69,6 @@ namespace Assignment
                     manager.Books = books;
                     this.addToGrid(books);
                 }
-                //manager.SaveToFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\Books.xml");
             }
             catch { }
         }

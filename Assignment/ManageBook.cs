@@ -73,7 +73,7 @@ namespace Assignment
             }
             if (!string.IsNullOrEmpty(title))
             {
-                query = query.Where(b => b.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
+                query = query.Where(b => b.Title.Contains(title));
             }
             if (!string.IsNullOrEmpty(category))
             {

@@ -2,14 +2,6 @@
 <ArrayOfBook xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Book>
     <Id>ISBN202400001</Id>
-    <Title>sdf</Title>
-    <Author>sdf</Author>
-    <Category>Sách tham khảo</Category>
-    <Quanti>34</Quanti>
-    <Date>2024-04-15T23:15:24</Date>
-  </Book>
-  <Book>
-    <Id>ISBN202400002</Id>
     <Title>sd</Title>
     <Author>xcv</Author>
     <Category>Luận văn</Category>
@@ -17,7 +9,7 @@
     <Date>2024-04-13T23:15:24</Date>
   </Book>
   <Book>
-    <Id>ISBN202400003</Id>
+    <Id>ISBN202400002</Id>
     <Title>sd</Title>
     <Author>xcv</Author>
     <Category>Khóa luận</Category>
@@ -25,27 +17,54 @@
     <Date>2024-04-13T23:15:24</Date>
   </Book>
   <Book>
-    <Id>ISBN202400004</Id>
-    <Title>sdfzvc</Title>
-    <Author>dfqewq</Author>
-    <Category>Giáo trình</Category>
-    <Quanti>12</Quanti>
-    <Date>2024-04-21T00:00:00</Date>
-  </Book>
-  <Book>
-    <Id>ISBN202400005</Id>
+    <Id>ISBN202400003</Id>
     <Title>OU</Title>
     <Author>WEER</Author>
     <Category>Đồ án ngành</Category>
     <Quanti>3</Quanti>
-    <Date>2024-04-22T21:30:37</Date>
+    <Date>2024-04-22T00:00:00</Date>
   </Book>
   <Book>
-    <Id>ISBN202400006</Id>
+    <Id>ISBN202400004</Id>
     <Title>kjjkshdf</Title>
     <Author>fds</Author>
     <Category>Sách tham khảo</Category>
     <Quanti>2</Quanti>
     <Date>2024-04-22T21:40:37</Date>
+  </Book>
+  <Book>
+    <Id>ISBN202400005</Id>
+    <Title>qwe</Title>
+    <Author>ZX</Author>
+    <Category>Sách tham khảo</Category>
+    <Quanti>2</Quanti>
+    <Date>2024-04-23T00:00:00</Date>
+  </Book>
+  <Book>
+    <Id>ISBN202400006</Id>
+    <Title>guide to cp</Title>
+    <Author>John</Author>
+    <Category>Khóa luận</Category>
+    <Quanti>2</Quanti>
+    <Date>2024-04-09T00:00:00</Date>
+    <ImgPath>D:\Y2S2\GUI\Assignment\Assignment\Assignment\bin\Debug\Assets\example.jpg</ImgPath>
+  </Book>
+  <Book>
+    <Id>ISBN202400007</Id>
+    <Title>deep learning</Title>
+    <Author>John</Author>
+    <Category>Sách tham khảo</Category>
+    <Quanti>1</Quanti>
+    <Date>2024-04-15T00:00:00</Date>
+    <ImgPath>D:\Y2S2\GUI\Assignment\Assignment\Assignment\bin\Debug\Assets\example.jpg</ImgPath>
+  </Book>
+  <Book>
+    <Id>ISBN202400008</Id>
+    <Title>hello</Title>
+    <Author>alk</Author>
+    <Category>Đồ án ngành</Category>
+    <Quanti>3</Quanti>
+    <Date>2024-04-15T00:00:00</Date>
+    <ImgPath />
   </Book>
 </ArrayOfBook>
