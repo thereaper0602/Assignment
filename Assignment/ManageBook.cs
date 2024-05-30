@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 using System.Xml.Serialization;
-using System.Runtime.Serialization;
-using System.Collections.Specialized;
 
 namespace Assignment
 {
@@ -37,7 +32,7 @@ namespace Assignment
                 listBook[index] = updated;
             }
         }
-
+        // Hàm lưu thông tin vô file xml
         public void SaveToFile(string fileName)
         {
             XmlSerializer obj = new XmlSerializer(typeof(List<Book>));
@@ -47,6 +42,7 @@ namespace Assignment
             }
         }
 
+        // Đọc dữ liệu từ file XML và trả về danh sách các đối tượng
         public List<Book> ReadFromFile(string fileName)
         {
             XmlSerializer obj = new XmlSerializer ( typeof(List<Book>));
@@ -62,8 +58,12 @@ namespace Assignment
             listBook.Remove(b);
         }
 
+        // Kiếm sách dựa trên các thông tin
         public List<Book> FindBook(string id = null,string title = null,string category = null,bool? descending = null)
         {
+            /*
+             * listBook.AsQueryable() : chuyển đổi 1 danh sách thành 1 đối tượng "IQeryable" -> Cho phép thực hiện truy vấn LINQ trên danh sách đó
+             */
             var query = listBook.AsQueryable();
 
             // Áp dụng các bộ lọc nếu tham số không null
@@ -88,6 +88,7 @@ namespace Assignment
             return query.ToList();
         }
 
+        // cập nhật lại ID cho sách sau khi xóa
         public void updateID()
         {
             int count = 1;

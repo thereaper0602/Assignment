@@ -1,12 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Assignment
@@ -53,7 +47,7 @@ namespace Assignment
                     MessageBox.Show("Mỗi sinh viên chỉ được mượn tối đa 3 cuốn");
                     return;
                 }
-                if(int.Parse(quantiTxt.Text) >= book[0].Quanti)
+                if(int.Parse(quantiTxt.Text) > book[0].Quanti)
                 {
                     MessageBox.Show("Số lượng sách không đủ");
                     return;
@@ -113,40 +107,41 @@ namespace Assignment
             }
         }
 
-        private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            index = (int)e.RowIndex;
-            DataGridViewRow row = dataGridView1.Rows[index];
-            studentNameTxt.Text = row.Cells["StudentName"].Value.ToString();
-            mssvTxt.Text = row.Cells["MSSV"].Value.ToString();
-            classNameTxt.Text = row.Cells["Class"].Value.ToString();
-            idBook.Text = row.Cells["ID"].Value.ToString();
-            bookNameTxt.Text = row.Cells["bookName"].Value.ToString();
-            quantiTxt.Text = row.Cells["Quanti"].Value.ToString();
-            string borrowDate = row.Cells["BorrowDate"].Value.ToString();
-            string returnDate = row.Cells["ReturnDate"].Value.ToString();
-            if (DateTime.TryParseExact(borrowDate, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime borrowDay) &&
-                DateTime.TryParseExact(returnDate, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime returnDay))
+            try
             {
-                dateTimePicker1.Value = borrowDay;
-                dateTimePicker2.Value = returnDay;
+                index = (int)e.RowIndex;
+                DataGridViewRow row = dataGridView1.Rows[index];
+                studentNameTxt.Text = row.Cells["StudentName"].Value.ToString();
+                mssvTxt.Text = row.Cells["MSSV"].Value.ToString();
+                classNameTxt.Text = row.Cells["Class"].Value.ToString();
+                idBook.Text = row.Cells["ID"].Value.ToString();
+                bookNameTxt.Text = row.Cells["bookName"].Value.ToString();
+                quantiTxt.Text = row.Cells["Quanti"].Value.ToString();
+                string borrowDate = row.Cells["BorrowDate"].Value.ToString();
+                string returnDate = row.Cells["ReturnDate"].Value.ToString();
+                if (DateTime.TryParseExact(borrowDate, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime borrowDay) &&
+                    DateTime.TryParseExact(returnDate, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime returnDay))
+                {
+                    dateTimePicker1.Value = borrowDay;
+                    dateTimePicker2.Value = returnDay;
+                }
+                else
+                {
+                    MessageBox.Show("The date format is not valid.");
+                    dateTimePicker1.Value = dateTimePicker1.Value = DateTime.Now; // Đặt giá trị mặc định
+                }
             }
-            else
-            {
-                MessageBox.Show("The date format is not valid.");
-                dateTimePicker1.Value = dateTimePicker1.Value = DateTime.Now; // Đặt giá trị mặc định
-            }
+            catch { }
         }
 
         private void extendBt_Click(object sender, EventArgs e)
         {
             DataGridViewRow row = dataGridView1.Rows[index];
             row.Cells["ReturnDate"].Value = dateTimePicker2.Value.AddDays(20).ToString("dd/MM/yyyy");
+            issued.SaveToFile("D:\\Y2S2\\GUI\\Assignment\\Assignment\\Assignment\\BorrowBook.xml");
+
         }
 
         private void findBt_Click(object sender, EventArgs e)

@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Assignment
@@ -15,14 +9,17 @@ namespace Assignment
         public static ManageBook manager;
         public Main()
         {
-            //Login log = new Login();
-            //log.ShowDialog();
+            Login log = new Login();
+            log.ShowDialog();
             InitializeComponent();
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            if (MessageBox.Show("Bạn muốn thoát ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
 
 
@@ -35,6 +32,7 @@ namespace Assignment
             issued1.Visible = false;
         }
 
+        // Chuyển đổi visible cho các control
         private void button1_Click(object sender, EventArgs e)
         {
             manage1.Visible = true;
@@ -53,7 +51,7 @@ namespace Assignment
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -70,6 +68,16 @@ namespace Assignment
             find1.Visible = false;
             dashBoard1.Visible = false;
             issued1.Visible = true;
+        }
+
+        private void label1_MouseHover(object sender, EventArgs e)
+        {
+            label1.BackColor = Color.Red;
+        }
+
+        private void label1_MouseLeave(object sender, EventArgs e)
+        {
+            label1.BackColor = Color.FromArgb(0, 37, 110);
         }
     }
 }

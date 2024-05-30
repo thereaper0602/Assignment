@@ -2,11 +2,11 @@
 <ArrayOfBook xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Book>
     <Id>ISBN202400001</Id>
-    <Title>sd</Title>
+    <Title>Tiếng Việt</Title>
     <Author>xcv</Author>
     <Category>Luận văn</Category>
     <Quanti>34</Quanti>
-    <Date>2024-04-13T23:15:24</Date>
+    <Date>2024-04-13T00:00:00</Date>
   </Book>
   <Book>
     <Id>ISBN202400002</Id>
@@ -21,7 +21,7 @@
     <Title>OU</Title>
     <Author>WEER</Author>
     <Category>Đồ án ngành</Category>
-    <Quanti>3</Quanti>
+    <Quanti>10</Quanti>
     <Date>2024-04-22T00:00:00</Date>
   </Book>
   <Book>
@@ -29,19 +29,11 @@
     <Title>kjjkshdf</Title>
     <Author>fds</Author>
     <Category>Sách tham khảo</Category>
-    <Quanti>2</Quanti>
-    <Date>2024-04-22T21:40:37</Date>
+    <Quanti>10</Quanti>
+    <Date>2024-04-22T00:00:00</Date>
   </Book>
   <Book>
     <Id>ISBN202400005</Id>
-    <Title>qwe</Title>
-    <Author>ZX</Author>
-    <Category>Sách tham khảo</Category>
-    <Quanti>2</Quanti>
-    <Date>2024-04-23T00:00:00</Date>
-  </Book>
-  <Book>
-    <Id>ISBN202400006</Id>
     <Title>guide to cp</Title>
     <Author>John</Author>
     <Category>Khóa luận</Category>
@@ -50,21 +42,36 @@
     <ImgPath>D:\Y2S2\GUI\Assignment\Assignment\Assignment\bin\Debug\Assets\example.jpg</ImgPath>
   </Book>
   <Book>
-    <Id>ISBN202400007</Id>
-    <Title>deep learning</Title>
-    <Author>John</Author>
-    <Category>Sách tham khảo</Category>
-    <Quanti>1</Quanti>
-    <Date>2024-04-15T00:00:00</Date>
-    <ImgPath>D:\Y2S2\GUI\Assignment\Assignment\Assignment\bin\Debug\Assets\example.jpg</ImgPath>
-  </Book>
-  <Book>
-    <Id>ISBN202400008</Id>
+    <Id>ISBN202400006</Id>
     <Title>hello</Title>
     <Author>alk</Author>
     <Category>Đồ án ngành</Category>
     <Quanti>3</Quanti>
     <Date>2024-04-15T00:00:00</Date>
-    <ImgPath />
+    <ImgPath>D:\Y2S2\GUI\Assignment\Assignment\Assignment\bin\Debug\Assets\example.jpg</ImgPath>
+  </Book>
+  <Book>
+    <Id>ISBN202400007</Id>
+    <Title>sfdg</Title>
+    <Author>ggh</Author>
+    <Category>Giáo trình</Category>
+    <Quanti>3</Quanti>
+    <Date>2024-05-10T14:56:37</Date>
+  </Book>
+  <Book>
+    <Id>ISBN202400008</Id>
+    <Title>abc</Title>
+    <Author>xyz</Author>
+    <Category>Báo - Tạp chí</Category>
+    <Quanti>10</Quanti>
+    <Date>2024-05-13T10:15:51</Date>
+  </Book>
+  <Book>
+    <Id>ISBN202400009</Id>
+    <Title>sdf</Title>
+    <Author>er</Author>
+    <Category>Sách tham khảo</Category>
+    <Quanti>3</Quanti>
+    <Date>2024-05-13T10:22:30</Date>
   </Book>
 </ArrayOfBook>

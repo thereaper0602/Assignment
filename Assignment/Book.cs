@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
 
 namespace Assignment
 {
@@ -20,13 +13,41 @@ namespace Assignment
         private DateTime date;
         private string imgPath;
         public Book() { }
-        public string Id { get => id; set => id = value; }
-        public string Title { get => title; set => title = value; }
-        public string Author { get => author; set => author = value; }
-        public string Category { get => category; set => category = value; }
-        public int Quanti { get => quanti; set => quanti = value; }
-        public DateTime Date { get => date; set => date = value; }
-        public string ImgPath { get => imgPath; set => imgPath = value; }
+        public string Id 
+        {
+            get { return id; }
+            set { id = value; }
+        }
+        public string Title 
+        {
+            get { return title; }
+            set { title = value; }
+        }
+        public string Author 
+        {
+            get { return author; }
+            set { author = value; }
+        }
+        public string Category 
+        {
+            get { return category; }
+            set { category = value; }
+        }
+        public int Quanti 
+        {
+            get { return quanti; }
+            set { quanti = value; }
+        }
+        public DateTime Date 
+        {
+            get { return date; }
+            set { date = value; }
+        }
+        public string ImgPath 
+        {
+            get { return imgPath; }
+            set { imgPath = value; }
+        }
 
         public Book(int count, string title, string author, string category, int quanti, string date)
         {

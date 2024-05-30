@@ -44,6 +44,9 @@ namespace Assignment
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
+            /*
+             * Nếu checkbox được check thì passTxt sẽ không có ký tự thay thế nào cả
+             */
             passTxt.PasswordChar = (checkBox1.Checked) ? '\0' : '*';
         }
 

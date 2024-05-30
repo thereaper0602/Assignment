@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Assignment
@@ -17,7 +11,6 @@ namespace Assignment
         {
             InitializeComponent();
         }
-
         private void addToGrid(List<Book> books)
         {
             foreach (Book book in books)
@@ -53,11 +46,17 @@ namespace Assignment
                 {
                     find = manager.FindBook(idTxt.Text, titleTxt.Text, category.Text, false);
                 }
+                if(find.Count == 0)
+                {
+                    MessageBox.Show("Không tìm thấy sách");
+                    return;
+                }
                 addToGrid(find);
             }
             catch { }
         }
 
+        // Khi có sự thay đổi về visible thì dữ liệu phải được cập nhật lại sao cho đồng bộ với ứng dụng
         private void Find_VisibleChanged(object sender, EventArgs e)
         {
             try
@@ -73,6 +72,7 @@ namespace Assignment
             catch { }
         }
 
+        // Khôi phục lại trạng thái ban đầu sau khi kiếm xong
         private void refreshBt_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
